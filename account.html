@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account</title>
+<style>
+    body {
+      margin:0;
+      height:100vh;
+      background-color:#d4217d;
+      display:flex;
+      justify-content:center;
+      font-family:cambria;
+      text-align: center;
+      height:100vh;
+    }
+
+    .box {
+      background-color: white;
+      padding:65px;
+      height:1000px;
+      border-radius: 25px;
+      width:380px;
+      text-align: center;
+      font-family: Cambria;
+    }
+    .logo{
+      width: 170px;
+      margin-bottom:25px;
+      color:#d4217d;
+    }
+    .signup{
+      color: #d4217d;
+    }
+    h2{
+        color: #d4217d;
+    }
+    input{
+        width:100%;
+        padding:10px;
+        font-size: 16px;
+        margin:10px 0;
+        border-radius:8px;
+    }
+    button{
+        background-color:#d4217d;
+        color:white;
+        padding:10px;
+        width:100%;
+        border-radius: 10px;
+    }
+    .forgot{
+      color:#d4217d;
+      font-size: 14px;
+    }
+</style>
+</head>
+<body>
+    <div class="box">
+      <img src="C:\Users\acer\Downloads\logo.jpeg"width="120"class="logo">
+  <h2 class="Account">Account</h2>
+  <input type="text"placeholder="Enter name"><br><br>
+  <input type="number"placeholder="Enter age"><br><br>
+  <input type="text"placeholder="Enter mother name"><br><br>
+  <input type="tel"placeholder="Enter mother phone number"><br><br>
+  <input type="text"placeholder="Enter father name"><br><br>
+  <input type="tel"placeholder="Enter father phone number"><br><br>
+  <input type="number"placeholder="Enter police number"><br><br>
+  <button onclick="getLocation()">Get Location</button>
+<p id="output"></p>
+
+<script>
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    // last location get pannradhu
+    let lastLat = localStorage.getItem("lastLat");
+    let lastLon = localStorage.getItem("lastLon");
+
+    if (lastLat && lastLon) {
+      document.getElementById("output").innerHTML =
+        "Last Location: " + lastLat + ", " + lastLon + "<br>" +
+        "Current Location: " + lat + ", " + lon;
+    } else {
+      document.getElementById("output").innerHTML =
+        "First time location saved";
+    }
+
+    // current location store pannrom
+    localStorage.setItem("lastLat", lat);
+    localStorage.setItem("lastLon", lon);
+  });
+}
+</script>
+    <a href="dashboard.html">
+    <button>Start</button>
+    </a>
+    </div>
+    </body>

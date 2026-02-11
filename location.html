@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phone Location Tracker</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+        font-family: Arial, sans-serif;
+        color: #d4217d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .tracker-box {
+        width: 350px;
+        padding: 25px;
+        border: 2px solid #d4217d;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(212,33,125,0.2);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #d4217d;
+        border-radius: 5px;
+        outline: none;
+        color: #d4217d;
+        font-size: 16px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #d4217d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 15px;
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="tracker-box">
+    <h2>📍 Location Tracker</h2>
+
+    <input type="text" id="phone" placeholder="Enter phone number">
+
+    <br>
+    <button onclick="trackLocation()">Track Location</button>
+
+    <div class="result" id="result">
+        <p><b>Country:</b> India</p>
+        <p><b>State:</b> Tamil Nadu</p>
+        <p><b>City:</b> Chennai</p>
+        <p><b>Network:</b> Mobile Network</p>
+    </div>
+</div>
+
+<script>
+    function trackLocation() {
+        let phone = document.getElementById("phone").value;
+
+        if (phone === "") {
+            alert("Please enter phone number");
+        } else {
+            document.getElementById("result").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
+

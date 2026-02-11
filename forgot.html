@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forgot password-Shecare</title>
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                background-color:#d4217d;
+                font-family: Cambria;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                height:100vh;
+            }
+            .box{
+                 background-color: white;
+      padding:65px;
+      height:750px;
+      border-radius: 25px;
+      width:380px;
+      text-align: center;
+      font-family: Cambria;
+            }
+            .logo{
+      width: 170px;
+      margin-bottom:25px;
+      color:#d4217d;
+            }
+            h2{
+                color:#d4217d;
+            }
+            input{
+                 width:100%;
+        padding:10px;
+        font-size: 16px;
+        margin:10px 0;
+        border-radius:8px;
+    }
+    button{
+        background-color:#d4217d;
+        color:white;
+        padding:10px;
+        width:100%;
+        border-radius: 10px;
+    }
+    a{
+        display:block;
+        margin-top:15px;
+        text-decoration: none;
+        color:white;
+    }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h2>Forgot password</h2>
+            <img src="C:\Users\shahin\Pictures\logo1.jpeg"class="logo">
+    <input type="text"placeholder="Enter your mobile number"><br><br>
+    <input type="text"placeholder="Enter you OTP"><br><br>
+     <input type="text"placeholder="Enter new password"><br><br>
+    <button onclick="showOTP()">Reset password</button>
+    <a href="signin.html">Back to login</a>
+    </div>
+    <script>
+        function showOTP(){
+            alert("Demo OTP sent 2128");
+        }
+    </script>
+    </body>
+</html>

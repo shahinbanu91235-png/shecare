@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Periods Tracker</title>
+
+<style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+        background:#f8f8f8;
+    }
+
+    .header{
+        background:#d4217d;
+        color:white;
+        text-align:center;
+        padding:18px;
+        font-size:22px;
+        font-weight:bold;
+    }
+
+    .container{
+        padding:15px;
+    }
+
+    .card{
+        background:white;
+        border:2px solid #d4217d;
+        border-radius:12px;
+        padding:15px;
+        margin-bottom:15px;
+        color:#d4217d;
+    }
+
+    .card h3{
+        margin-top:0;
+    }
+
+    input{
+        width:100%;
+        padding:10px;
+        margin-top:8px;
+        border:1px solid #d4217d;
+        border-radius:6px;
+    }
+
+    .btn{
+        background:#d4217d;
+        color:white;
+        border:none;
+        padding:12px;
+        width:100%;
+        border-radius:8px;
+        font-size:16px;
+        margin-top:10px;
+        cursor:pointer;
+    }
+
+    .alert{
+        background:#ffe6f2;
+        border-left:5px solid #d4217d;
+        padding:12px;
+        border-radius:8px;
+        font-weight:bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Periods Tracker
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Enter Your Details</h3>
+
+        <label>Last Period Start Date</label>
+        <input type="date" id="lastDate">
+
+        <label>Cycle Length (Days)</label>
+        <input type="number" id="cycle" placeholder="Eg: 28">
+
+        <button class="btn" onclick="calculate()">Check Prediction</button>
+    </div>
+
+    <div class="card" id="result" style="display:none;">
+        <h3>Prediction</h3>
+        <p id="nextDate"></p>
+
+        <div class="alert" id="alertMsg"></div>
+    </div>
+
+</div>
+
+<script>
+function calculate(){
+    let lastDate = new Date(document.getElementById("lastDate").value);
+    let cycle = parseInt(document.getElementById("cycle").value);
+
+    if(isNaN(lastDate) || isNaN(cycle)){
+        alert("Please enter all details");
+        return;
+    }
+
+    // Calculate next period date
+    let nextPeriod = new Date(lastDate);
+    nextPeriod.setDate(nextPeriod.getDate() + cycle);
+
+    let today = new Date();
+    let diffTime = nextPeriod - today;
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("nextDate").innerHTML =
+        "📅 Expected Period Date: <b>" + nextPeriod.toDateString() + "</b>";
+
+    let msg = "";
+
+    if(diffDays > 5){
+        msg = "💗 Your period is expected in " + diffDays + " days. Stay healthy!";
+    }
+    else if(diffDays <= 5 && diffDays > 3){
+        msg = "⚠️ Your period may start in 5 days. Take rest & hydrate well.";
+    }
+    else if(diffDays <= 3 && diffDays > 1){
+        msg = "🔔 Your period may start in 3 days. Be prepared.";
+    }
+    else if(diffDays === 1){
+        msg = "🚨 Your period may start tomorrow. Take care 💕";
+    }
+    else if(diffDays === 0){
+        msg = "🩸 Your period may start today.";
+    }
+    else{
+        msg = "ℹ️ Prediction passed. Please update your last period date.";
+    }
+
+    document.getElementById("alertMsg").innerHTML = msg;
+}
+</script>
+
+</body>
+</html>
+

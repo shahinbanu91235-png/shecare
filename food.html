@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthy Food | SheCare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: cambria;
+            background-color: white;
+            color: #333;
+        }
+
+        header {
+            background-color: #d4217d;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #d4217d;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .food-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .food-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px 20px;
+            border: 1.5px solid #d4217d;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .food-item:hover {
+            background-color: white;
+            border-color: #d4217d;
+        }
+
+        .food-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Inga thaan heading color-ah #d4217d ku mathirukaen */
+        .food-info h3 {
+            margin: 0;
+            color: #d4217d; /* Neenga keta Pink color */
+            font-size: 18px;
+            font-weight: 700; /* Innum konjam bold-ah theriya */
+        }
+
+        .food-info p {
+            margin: 4px 0 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 30px;
+            background-color: #d4217d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .back-btn:hover {
+            background-color: #b01a65;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1> Healthy Food for Women</h1>
+    <p>SheCare – Eat Healthy, Stay Strong</p>
+</header>
+
+<div class="container">
+    <h2>Recommended Daily Foods</h2>
+
+    <div class="food-list">
+        <button class="food-item" onclick="alert('Spinach: Take 1 cup daily')">
+            <div class="food-icon">🥬</div>
+            <div class="food-info">
+                <h3>Spinach</h3>
+                <p>Rich in iron and helps prevent anemia.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Apples: One per day is ideal')">
+            <div class="food-icon">🍎</div>
+            <div class="food-info">
+                <h3>Apples</h3>
+                <p>Good for digestion and boosts immunity.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Eggs: 1-2 boiled eggs daily')">
+            <div class="food-icon">🥚</div>
+            <div class="food-info">
+                <h3>Eggs</h3>
+                <p>High protein food for strength and energy.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Milk: 1 glass before bed')">
+            <div class="food-icon">🥛</div>
+            <div class="food-info">
+                <h3>Milk</h3>
+                <p>Strengthens bones with calcium and vitamin D.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Blueberries: Great for morning snacks')">
+            <div class="food-icon">🫐</div>
+            <div class="food-info">
+                <h3>Blueberries</h3>
+                <p>Antioxidants for brain and skin health.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Salmon: Take twice a week')">
+            <div class="food-icon">🐟</div>
+            <div class="food-info">
+                <h3>Salmon</h3>
+                <p>Omega-3 fatty acids for heart support.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Greek Yogurt: Best for gut health')">
+            <div class="food-icon">🥣</div>
+            <div class="food-info">
+                <h3>Greek Yogurt</h3>
+                <p>Probiotics for digestion and high protein.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Nuts: A handful of almonds/walnuts')">
+            <div class="food-icon">🥜</div>
+            <div class="food-info">
+                <h3>Nuts</h3>
+                <p>Provides healthy fats and hormonal balance.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Quinoa: Good alternative for rice')">
+            <div class="food-icon">🌾</div>
+            <div class="food-info">
+                <h3>Quinoa</h3>
+                <p>Gluten-free grain with essential amino acids.</p>
+            </div>
+        </button>
+
+        <button class="food-item" onclick="alert('Carrots: Good as raw salad')">
+            <div class="food-icon">🥕</div>
+            <div class="food-info">
+                <h3>Carrots</h3>
+                <p>Good for skin health and eyesight.</p>
+            </div>
+        </button>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">
+        ⬅ Back to Dashboard
+    </button>
+</div>
+
+</body>
+</html>

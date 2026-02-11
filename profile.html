@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SheCare - Profile Page</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family: cambria;
+        background: white;
+        color: #d4217d;
+    }
+
+    .container{
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 10px;
+    }
+
+    h2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .profile-pic{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .profile-pic img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #d4217d;
+    }
+
+    .box{
+        background: white;
+        border: 2px solid #d4217d;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        width: 90%;
+    
+    }
+
+    .box label{
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .box input{
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #d4217d;
+        border-radius: 5px;
+        outline: none;
+        color: #d4217d;
+    }
+
+    .btn{
+        width: 100%;
+        padding: 10px;
+        background: #d4217d;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>SheCare Profile</h2>
+
+    <!-- Profile Picture -->
+    <div class="profile-pic">
+        <img src="C:\Users\studentg\Downloads\icon.jpeg" alt="Profile">
+    </div>
+
+    <!-- Basic Details -->
+    <div class="box">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name">
+    </div>
+
+    <div class="box">
+        <label>Age</label>
+        <input type="number" placeholder="Enter your age">
+    </div>
+
+    <div class="box">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+    </div>
+
+    <div class="box">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter phone number">
+    </div>
+
+    <!-- Health Preference -->
+    <div class="box">
+        <label>Health Goal</label>
+        <input type="text" placeholder="Self-care / Wellness">
+    </div>
+
+    <!-- Button -->
+    <button class="btn"><a href="dashboard.html">Save profile</button></a>
+
+    
+
+</div>
+
+</body>
+</html>
+

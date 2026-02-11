@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yoga Schedule | SheCare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family:cambria;
+            background:white;
+            color:#d4217d;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color:#d4217d;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Vertical Day Buttons */
+        .vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .day-section {
+            background:white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #d4217d;
+        }
+
+        .day-header {
+            width: 100%;
+            padding: 18px;
+            background:white;
+            color:#d4217d;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .day-header:hover {
+            background: #f0f0f0;
+        }
+
+        .day-header.active {
+            background: #d4217d;
+            color: white;
+        }
+
+        /* Yoga Content Area */
+        .yoga-content-area {
+            display: none; /* Hidden until day is clicked */
+            padding: 15px;
+            background:rgba(255, 255, 255, 0.05);
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .yoga-card {
+            background:#d4217d;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .yoga-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .yoga-details {
+            padding: 15px;
+        }
+
+        .yoga-details h4 {
+            margin: 0;
+            color: #a3175e;
+            font-size: 1.1rem;
+        }
+
+        .yoga-details p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 8px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #d4217d;
+            background: #fdf0f6;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background: #d4217d;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🧘‍♀️ Daily Yoga Plan</h1>
+    <p>Select a day to start your practice</p>
+</header>
+
+<div class="container">
+    <div class="vertical-menu" id="main-menu">
+        </div>
+
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">
+        ⬅ Back to Dashboard
+    </button>
+</div>
+
+<script>
+    const yogaSchedule = {
+        'Monday': [
+            { name: "Surya Namaskar", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400", time: "10 Mins", sets: "5 Rounds", desc: "Full body energy booster." },
+            { name: "Mountain Pose", img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400", time: "3 Mins", sets: "Hold 30s", desc: "Focus on balance." }
+        ],
+        'Tuesday': [
+            { name: "Tree Pose", img: "https://images.unsplash.com/photo-1552196564-972d46380271?w=400", time: "5 Mins", sets: "3 Holds", desc: "Concentration and leg strength." }
+        ],
+        'Wednesday': [
+            { name: "Cobra Pose", img: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=400", time: "4 Mins", sets: "5 Reps", desc: "Great for back flexibility." }
+        ],
+        'Thursday': [
+            { name: "Warrior I", img: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400", time: "6 Mins", sets: "4 Reps", desc: "Builds stamina." }
+        ],
+        'Friday': [
+            { name: "Child's Pose", img: "https://images.unsplash.com/photo-1518005020250-eccdd5f2d71d?w=400", time: "5 Mins", sets: "Relax", desc: "Relieves stress." }
+        ],
+        'Saturday': [
+            { name: "Meditation", img: "https://images.unsplash.com/photo-1499336315816-097655dcfbda?w=400", time: "15 Mins", sets: "1 Session", desc: "Mental peace." }
+        ],
+        'Sunday': [
+            { name: "Deep Stretching", img: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400", time: "20 Mins", sets: "Slow", desc: "Recovery day." }
+        ]
+    };
+
+    const mainMenu = document.getElementById('main-menu');
+
+    // Generate the vertical day buttons
+    Object.keys(yogaSchedule).forEach(day => {
+        const section = document.createElement('div');
+        section.className = 'day-section';
+
+        const button = document.createElement('button');
+        button.className = 'day-header';
+        button.innerHTML = `<span>${day}</span> <span>▼</span>`;
+        
+        const content = document.createElement('div');
+        content.className = 'yoga-content-area';
+
+        // Fill content with yoga cards
+        yogaSchedule[day].forEach(yoga => {
+            content.innerHTML += `
+                <div class="yoga-card">
+                    <img src="${yoga.img}" class="yoga-image">
+                    <div class="yoga-details">
+                        <h4>${yoga.name}</h4>
+                        <p>${yoga.desc}</p>
+                        <div class="stats">
+                            <span>🕒 ${yoga.time}</span>
+                            <span>🔄 ${yoga.sets}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        button.onclick = () => {
+            const isActive = button.classList.contains('active');
+            // Close all others
+            document.querySelectorAll('.day-header').forEach(h => h.classList.remove('active'));
+            document.querySelectorAll('.yoga-content-area').forEach(c => c.style.display = 'none');
+            
+            // Toggle current
+            if (!isActive) {
+                button.classList.add('active');
+                content.style.display = 'flex';
+            }
+        };
+
+        section.appendChild(button);
+        section.appendChild(content);
+        mainMenu.appendChild(section);
+    });
+</script>
+
+</body>
+</html>
+
+
